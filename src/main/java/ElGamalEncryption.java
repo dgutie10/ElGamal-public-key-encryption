@@ -106,6 +106,7 @@ public class ElGamalEncryption {
 
         for (byte messageByte : messageBytes) {
             BigInteger temp = deltaSuffix.multiply(BigInteger.valueOf(messageByte)).mod(P);
+            System.out.println(temp.toString());
             delta.add(temp.toString());
         }
         String deltaString = StringUtils.join(delta, "-");
@@ -170,6 +171,9 @@ public class ElGamalEncryption {
                     System.out.println(String.format(outputFormat, "Encrypted Text", StringUtils.join(encryptedMsg,",")));
                     elGamalEncryption.displayPublicKey(false);
                     functionSelector = 0;
+                    break;
+                case 5:
+                    exit = true;
                     break;
                 default:
                     System.out.println("Invalid selection. Try again...\n");

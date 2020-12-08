@@ -11,14 +11,15 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.12'
-    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'  //'org.apache.commons:commons-lang3:3.11'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.11'
 }
 
 jar {
+
     manifest{
-        attributes(
-                'Class-Path': configurations.compile.collect { it.getName() }.join(' '),
-                'Main-Class': 'CLI'
-        )
+        attributes "Main-Class" : "ElGamalEncryption"
+    }
+    from{
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
 }
