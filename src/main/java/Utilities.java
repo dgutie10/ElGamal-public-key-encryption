@@ -82,21 +82,4 @@ public class Utilities {
 
         return true;
     }
-
-    public BigInteger power (BigInteger base, BigInteger exponent){
-        if (exponent.equals(BigInteger.ONE)){ return  base; }
-        if (exponent.equals(BigInteger.ZERO)){ return  BigInteger.ONE; }
-
-        BigInteger result = base;
-        while(exponent.compareTo(BigInteger.ONE) > 0){
-            result  = result.multiply(base);
-            exponent = exponent.subtract(BigInteger.ONE);
-        }
-        return result;
-    }
-
-    public static void main(String[] args) {
-        Utilities utilities = new Utilities();
-        utilities.power(BigInteger.valueOf(2),BigInteger.valueOf(10));
-    }
 }
