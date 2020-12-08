@@ -106,7 +106,6 @@ public class ElGamalEncryption {
 
         for (byte messageByte : messageBytes) {
             BigInteger temp = deltaSuffix.multiply(BigInteger.valueOf(messageByte)).mod(P);
-            System.out.println(temp.toString());
             delta.add(temp.toString());
         }
         String deltaString = StringUtils.join(delta, "-");
